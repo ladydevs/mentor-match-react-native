@@ -18,7 +18,7 @@ const AppNavigator =  StackNavigator({
     StarWars: { screen: StarWars },
     Person: { screen: Person }
 }, {
-    initialRouteName: 'Login'
+    initialRouteName: 'Home'
 });
 
 export default () => (
