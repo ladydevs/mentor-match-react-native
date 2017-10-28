@@ -1,84 +1,70 @@
 import React from 'react';
 import {
-    StyleSheet
+  StyleSheet
 } from 'react-native';
 import {
-    StyleProvider,
-    Container,
-    Content,
-    H1, H2, H3,
-    Text,
-    Button
+  StyleProvider,
+  Content,
+  H1, H2, H3,
+  Text,
+  Button,
+  Footer
 } from 'native-base/src';
+import BrandedContainer from './BrandedContainer';
 // import { Button } from 'native-base/src/basic/Button';
 
 export default class Home extends React.Component {
-    static navigationOptions = ({ navigation, screenProps }) => ({
-        title: 'React Native Rockstarter',
-        headerRight: (
-            <Button transparent
-                    onPress={() => navigation.navigate('Profile')}>
-                <Text>Profile</Text>
-            </Button>
-        )
-    });
+  static navigationOptions = ({navigation, screenProps}) => ({
+    title: 'LadyDevs Mentor Match',
+  });
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            text: '',
-            isLoading: true
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: '',
+      isLoading: true
+    };
+  }
 
-    render() {
-        const { navigate } = this.props.navigation;
-        return (
-            <Container>
-                <Content contentContainerStyle={styles.container}>
-                    <H1>Welcome</H1>
-                    <H2>to the</H2>
-                    <H3>React Native Rockstarter</H3>
-                    <Button danger style={styles.buttonContainer}
-                            onPress={() => navigate('Login')}
-                    >
-                        <Text>Login</Text>
-                    </Button>
-                    <Button primary style={styles.buttonContainer}
-                            onPress={() => navigate('Demo')}
-                    >
-                        <Text>Demo</Text>
-                    </Button>
-                    <Button info style={styles.buttonContainer}
-                            onPress={() => navigate('StarWars', { endpoint: 'people' })}
-                    >
-                        <Text>Star Wars People</Text>
-                    </Button>
-                    <Button success style={styles.buttonContainer}
-                            onPress={() => navigate('StarWars', { endpoint: 'planets' })}
-                    >
-                        <Text>Star Wars Planets</Text>
-                    </Button>
-                    <Button warning style={styles.buttonContainer}
-                            onPress={() => navigate('StarWars', { endpoint: 'starships' })}
-                    >
-                        <Text>Star Wars Starships</Text>
-                    </Button>
-                </Content>
-            </Container>
-        );
-    }
+  render() {
+    const {navigate} = this.props.navigation;
+    return (
+      <BrandedContainer>
+        <Content contentContainerStyle={styles.container}>
+          <H1>LadyDevs Mentor Match</H1>
+          <Text style={styles.description}>Connect with a dev mentor in your community.</Text>
+        </Content>
+        <Button block large style={styles.button}>
+          <Text>Get Started</Text>
+        </Button>
+        <Button bordered block large style={styles.button}>
+          <Text>I Already Have an Account</Text>
+        </Button>
+      </BrandedContainer>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'center'
-        // justifyContent: 'center'
+      flex: 1,
+      flexDirection: 'column',
+      alignItems: 'center',
+      padding: 20
+    },
+    description: {
+      textAlign: 'center',
+      marginTop: 10
     },
     buttonContainer: {
-        margin: 10,
-        alignSelf: 'center'
+      margin: 10,
+      alignSelf: 'center'
+    },
+    footer: {
+      backgroundColor: '#fff'
+    },
+    button: {
+      marginBottom: 20
     }
-});
+  })
+;
