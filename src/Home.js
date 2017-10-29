@@ -34,7 +34,9 @@ export default class Home extends React.Component {
           <H1>LadyDevs Mentor Match</H1>
           <Text style={styles.description}>Connect with a dev mentor in your community.</Text>
         </Content>
-        <Button block large style={styles.button}>
+        <Button block large
+                style={styles.button}
+                onPress={() => this.props.navigation.navigate('Register')}>
           <Text>Get Started</Text>
         </Button>
         <Button bordered block large style={styles.button}>

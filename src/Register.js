@@ -9,7 +9,10 @@ import {
     Text,
     Icon,
     Item,
-    Input
+    Input,
+    CheckBox,
+    Body,
+    ListItem
 } from 'native-base/src';
 import { NavigationActions } from 'react-navigation';
 import API from './utils/api';
@@ -18,8 +21,14 @@ import BrandedContainer from './BrandedContainer';
 
 export default class Register extends React.Component {
     static navigationOptions = {
-        title: 'Register',
-        headerLeft: null
+        title: 'Create an Account',
+        headerBackTitleStyle: {
+            color: '#ee4782'
+        },
+        headerTintColor: '#ee4782',
+        headerTitleStyle: {
+          color: '#000'
+        }
     };
 
     constructor(props) {
@@ -133,19 +142,24 @@ export default class Register extends React.Component {
                             <Icon name={!this.state.showPassword ? 'eye' : 'eye-off'}/>
                         </Button>
                     </Item>
+                    <ListItem>
+                        <CheckBox color="#000"/>
+                        <Body>
+                            <Text>I agree to abide by the LadyDevs Code of Conduct.</Text>
+                        </Body>
+                    </ListItem>
                     <Button block
                             style={styles.btn}
-                            onPress={this.login}
-                    >
-                        <Text>REGISTER</Text>
+                            onPress={this.login}>
+                        <Text>CONTINUE</Text>
                     </Button>
-                    <Button block
-                            transparent
-                            style={styles.btn}
-                            onPress={() => this.props.navigation.navigate('Login')}
-                    >
-                        <Text>Login</Text>
-                    </Button>
+                    {/*<Button block*/}
+                            {/*transparent*/}
+                            {/*style={styles.btn}*/}
+                            {/*onPress={() => this.props.navigation.navigate('Login')}*/}
+                    {/*>*/}
+                        {/*<Text>Login</Text>*/}
+                    {/*</Button>*/}
                 </Content>
             </BrandedContainer>
         );
